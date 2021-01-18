@@ -3,7 +3,16 @@
 ## Inhaltsverzeichnis
 
 1. [Ausganssituation](#ausgangssituation)
+   - [Projektumfeld](#projektumfeld)
+   - [Projektziele](#projektziele)
+   - [Prozessschnittstellen (Ansprechpartner, Ein- Ausstieg, Arbeitsumgebung)](<#prozessschnittstellen-(ansprechpartner,-ein--ausstieg,-arbeitsumgebung)>)
 1. [Ressourcen- und Ablaufplanung](#ressourcen--und-ablaufplanung)
+   - [Personalplanung](#personalplanung)
+   - [Sachmittelplanung](#sachmittelplanung)
+   - [Ablaufplanung](#ablaufplanung)
+   - [Terminplanung](#terminplanung)
+   - [Kostenplanung](#kostenplanung)
+   - [Qualitätsplanung / Abnahmeprotokoll](#qualitätsplanung-/-abnahmeprotokoll)
 1. [Durchführung- und Auftragsbearbeitung](#durchführung--und-auftragsbearbeitung)
 1. [Projektergebnisse](#projektergebnisse)
 1. [Verzeichnis der Arbeits-/Hilfsmittel](#verzeichnis-der-arbeits-/hilfsmittel)
@@ -91,7 +100,7 @@ Folgende Tabelle schlüsselt die Gesamtkosten des Projekts inklusive dokumentati
 | Headsets           | 2 Headsets \* 30€ Kaufpreis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung  |   0,22€ |
 |                    | **Gesamtbetrag:**                                                                | 510,79€ |
 
-### Abnahmeprotokoll
+### Qualitätsplanung / Abnahmeprotokoll
 
 ## Durchführung- und Auftragsbearbeitung
 
