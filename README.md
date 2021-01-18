@@ -30,35 +30,35 @@ Wegen der SARS-CoV-2-Pandemie befinden setzt jeder der Azubis das Spiel zuhause 
 
 ### Personalplanung
 
-| Person | Zuständigkeit |
-|:-------|:------------|
-| Thomas Stark | Das Projektteam ist zuständig für die Durchführung des Projekts |
+| Person         | Zuständigkeit                                                                                                  |
+| :------------- | :------------------------------------------------------------------------------------------------------------- |
+| Thomas Stark   | Das Projektteam ist zuständig für die Durchführung des Projekts                                                |
 | Martin Plieske | Fachlehrer unterstützen in Ausnahmesituationen das Projektteam und sind für Aufsicht über die Teams zuständig. |
 
 ### Sachmittelplanung
 
-| Produkt | Anzahl |
-|:--|:--|
-| Bildschirm | 5 |
-| Displayport Kabel | 5 |
-| Kaltgerätekabel | 7 |
-| Computer | 2 |
-| Tastatur | 2 |
-| Computermaus | 2 |
-| Tisch | 2 |
-| Stuhl | 2 |
-| Headset | 2 |
-| CAT 6 Kabel | 2 |
-| Visual Studio Code | 2 |
-| IntelliJ IDEA Community Edition | 1 |
-| JavaFx Scene Builder | 1 |
-| Discord | 2 |
-| Github | 1 |
-| Git | 1 |
-| JetBrains Raider | 1 |
-| Adobe Photoshop | 1 |
-| Windows | 1 |
-| Manjaro Linux | 1 |
+| Produkt                         | Anzahl |
+| :------------------------------ | :----- |
+| Bildschirm                      | 5      |
+| Displayport Kabel               | 5      |
+| Kaltgerätekabel                 | 7      |
+| Computer                        | 2      |
+| Tastatur                        | 2      |
+| Computermaus                    | 2      |
+| Tisch                           | 2      |
+| Stuhl                           | 2      |
+| Headset                         | 2      |
+| CAT 6 Kabel                     | 2      |
+| Visual Studio Code              | 2      |
+| IntelliJ IDEA Community Edition | 1      |
+| JavaFx Scene Builder            | 1      |
+| Discord                         | 2      |
+| Github                          | 1      |
+| Git                             | 1      |
+| JetBrains Raider                | 1      |
+| Adobe Photoshop                 | 1      |
+| Windows                         | 1      |
+| Manjaro Linux                   | 1      |
 
 ### Ablaufplanung
 
@@ -70,25 +70,44 @@ Wegen der SARS-CoV-2-Pandemie befinden setzt jeder der Azubis das Spiel zuhause 
 
 ### Kostenplanung
 
+Folgende Tabelle schlüsselt die Gesamtkosten des Projekts inklusive dokumentation auf.
 
-### Qualitätsplanung
+| Kostenart          | Aufschlüsselung                                                          |  Kosten |
+| ------------------ | ------------------------------------------------------------------------ | ------: |
+| **Personalkosten** |                                                                          |         |
+| Azubi              | 2 Azubis \* 32h \* 6,00€ Stundenlohn                                     | 384,00€ |
+| **Nebenkosten**    |                                                                          |         |
+| Miete              | 15m² Zimmer \* 24€ pro m² + 17m² \* 20€ pro m² / 30 Tage \* 4 Tage       |  93,33€ |
+| Strom              | 32m² Fläche \* 70kWh pro m² / 360 Tage \* 4 Tage \* 0,025€ pro kWh       |   0,62€ |
+| Heizen             | 10,30€ Heizkosten Gas pro m² im Jahr \* 32m² Fläche / 360 Tage \* 4 Tage |   3,66€ |
+| Internet           | 2 Internetanschlüsse \* 40€ pro Anschluss pro Monat / 30 Tage \* 4 Tage  |  10,67€ |
+| **Abschreibungen** |                                                                          |         |
+| Computer           |                                                                          |         |
+| Tische             |                                                                          |         |
+| Stühle             |                                                                          |         |
+| Bildschirme        |                                                                          |         |
+| Computermäuse      |                                                                          |         |
+| Tastaturen         |                                                                          |         |
+| Headsets           |                                                                          |         |
+
+### Abnahmeprotokoll
 
 ## Durchführung- und Auftragsbearbeitung
 
-* Prozessschritte, Vorgehensweise, Knackpunkte, Qualitätssicherung
-* Abweichungen, Anpassungen, Entscheidungen
+- Prozessschritte, Vorgehensweise, Knackpunkte, Qualitätssicherung
+- Abweichungen, Anpassungen, Entscheidungen
 
 ## Projektergebnisse
 
-* Soll-Ist-Vergleich, Abnahme, Bewertung (Fazit, Ausblick)
+- Soll-Ist-Vergleich, Abnahme, Bewertung (Fazit, Ausblick)
 
 ## Verzeichnis der Arbeits-/Hilfsmittel
 
-* Literatur, Internet-Quellen, Software, Tools
+- Literatur, Internet-Quellen, Software, Tools
 
 ## Anhang
 
-* Abnahmeprotokoll
-* Quelltext, UML, STGs
-* evtl. Spielanleitung
-* Kostenrechnung
+- Abnahmeprotokoll
+- Quelltext, UML, STGs
+- evtl. Spielanleitung
+- Kostenrechnung
