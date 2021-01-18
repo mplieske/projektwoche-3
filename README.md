@@ -66,7 +66,7 @@ Wegen der SARS-CoV-2-Pandemie befinden setzt jeder der Azubis das Spiel zuhause 
 
 ### Terminplanung
 
-| Person ||
+![Terminplan](./docs/img/terminplan.png)
 
 ### Kostenplanung
 
