@@ -60,9 +60,13 @@ Wegen der SARS-CoV-2-Pandemie befinden setzt jeder der Azubis das Spiel zuhause 
 | Windows | 1 |
 | Manjaro Linux | 1 |
 
+### Ablaufplanung
+
+![Ablaufplan](./docs/img/ablaufplang.png)
+
 ### Terminplanung
 
-
+| Person ||
 
 ### Kostenplanung
 
