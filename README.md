@@ -72,23 +72,24 @@ Wegen der SARS-CoV-2-Pandemie befinden setzt jeder der Azubis das Spiel zuhause 
 
 Folgende Tabelle schlüsselt die Gesamtkosten des Projekts inklusive dokumentation auf.
 
-| Kostenart          | Aufschlüsselung                                                          |  Kosten |
-| ------------------ | ------------------------------------------------------------------------ | ------: |
-| **Personalkosten** |                                                                          |         |
-| Azubi              | 2 Azubis \* 32h \* 6,00€ Stundenlohn                                     | 384,00€ |
-| **Nebenkosten**    |                                                                          |         |
-| Miete              | 15m² Zimmer \* 24€ pro m² + 17m² \* 20€ pro m² / 30 Tage \* 4 Tage       |  93,33€ |
-| Strom              | 32m² Fläche \* 70kWh pro m² / 360 Tage \* 4 Tage \* 0,025€ pro kWh       |   0,62€ |
-| Heizen             | 10,30€ Heizkosten Gas pro m² im Jahr \* 32m² Fläche / 360 Tage \* 4 Tage |   3,66€ |
-| Internet           | 2 Internetanschlüsse \* 40€ pro Anschluss pro Monat / 30 Tage \* 4 Tage  |  10,67€ |
-| **Abschreibungen** |                                                                          |         |
-| Computer           |                                                                          |         |
-| Tische             |                                                                          |         |
-| Stühle             |                                                                          |         |
-| Bildschirme        |                                                                          |         |
-| Computermäuse      |                                                                          |         |
-| Tastaturen         |                                                                          |         |
-| Headsets           |                                                                          |         |
+| Kostenart          | Aufschlüsselung                                                                  |  Kosten |
+| ------------------ | -------------------------------------------------------------------------------- | ------: |
+| **Personalkosten** |                                                                                  |         |
+| Azubi              | 2 Azubis \* 32h \* 6,00€ Stundenlohn                                             | 384,00€ |
+| **Nebenkosten**    |                                                                                  |         |
+| Miete              | 15m² Zimmer \* 24€ pro m² + 17m² \* 20€ pro m² / 30 Tage \* 4 Tage               |  93,33€ |
+| Strom              | 32m² Fläche \* 70kWh pro m² / 360 Tage \* 4 Tage \* 0,025€ pro kWh               |   0,62€ |
+| Heizen             | 10,30€ Heizkosten Gas pro m² im Jahr \* 32m² Fläche / 360 Tage \* 4 Tage         |   3,66€ |
+| Internet           | 2 Internetanschlüsse \* 40€ pro Anschluss pro Monat / 30 Tage \* 4 Tage          |  10,67€ |
+| **Abschreibungen** |                                                                                  |         |
+| Computer           | 2 Computer \* 1500€ Preis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung    |  11,11€ |
+| Tische             | 2 Tische \* 200€ Preis / 1800 Tage Abschreibungszeitraum \* 4 Tage Nutzung       |   0,89€ |
+| Stühle             | 2 Stühle \* 250€ Preis / 1800 Tage Abschreibungszeitraum \* 4 Tage Nutzung       |   1,11€ |
+| Bildschirme        | 5 Bildschirme \* 200€ Preis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung  |   3,70€ |
+| Computermäuse      | 2 Computermäuse \* 50€ Preis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung |   0,37€ |
+| Tastaturen         | 2 Tastaturen \* 150€ Preis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung   |   1,11€ |
+| Headsets           | 2 Headsets \* 30€ Kaufpreis / 1080 Tage Abschreibungszeitraum \* 4 Tage Nutzung  |   0,22€ |
+|                    | **Gesamtbetrag:**                                                                | 510,79€ |
 
 ### Abnahmeprotokoll
 
