@@ -28,6 +28,11 @@
                 </Label>
                 <ImageView fx:id="currentPlayerImageView" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"
                            preserveRatio="true"/>
+                <Label fx:id="playerNameLabel">
+                    <font>
+                        <Font name="System Italic" size="21.0"/>
+                    </font>
+                </Label>
             </children>
         </HBox>
         <StackPane>

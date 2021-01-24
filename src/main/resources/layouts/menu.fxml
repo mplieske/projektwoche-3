@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0"
+      xmlns="http://javafx.com/javafx/11.0.10-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="de.mplieske.projektwoche.view.controller.MenuController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <children>
+        <Label text="Othello Menu">
+            <font>
+                <Font size="40.0"/>
+            </font>
+        </Label>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="117.0" minWidth="10.0" prefWidth="71.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.0" minWidth="10.0" prefWidth="175.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="Player 1:"/>
+                <Label text="Player 2:" GridPane.rowIndex="1"/>
+                <TextField fx:id="playerOneTextField" promptText="Name Of Player 1" GridPane.columnIndex="1"/>
+                <TextField fx:id="playerTwoTextField" promptText="Name Of Player 2" GridPane.columnIndex="1"
+                           GridPane.rowIndex="1"/>
+            </children>
+        </GridPane>
+        <HBox alignment="CENTER_RIGHT" spacing="5.0">
+            <children>
+                <Button fx:id="startButton" disable="true" mnemonicParsing="false" text="Start"/>
+                <Button fx:id="quitButton" mnemonicParsing="false" text="Quit"/>
+            </children>
+        </HBox>
+    </children>
+</VBox>

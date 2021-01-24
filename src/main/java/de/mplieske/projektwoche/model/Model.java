@@ -7,6 +7,8 @@ public class Model {
    private final SimpleObjectProperty<FieldStatus>[][] board = new SimpleObjectProperty[8][8];
    private final SimpleObjectProperty<FieldStatus> currentPlayer = new SimpleObjectProperty<>();
    private final SimpleObjectProperty<FieldStatus> winner = new SimpleObjectProperty<>(FieldStatus.EMPTY);
+   private final SimpleObjectProperty<String> playerWhiteName = new SimpleObjectProperty<>("");
+   private final SimpleObjectProperty<String> playerBlackName = new SimpleObjectProperty<>("");
 
    public Model() {
       for (int i = 0; i < 8; i++) {
@@ -42,5 +44,29 @@ public class Model {
 
    public SimpleObjectProperty<FieldStatus> winnerProperty() {
       return winner;
+   }
+
+   public String getPlayerWhiteName() {
+      return playerWhiteName.getValue();
+   }
+
+   public void setPlayerWhiteName(final String name) {
+      playerWhiteName.setValue(name);
+   }
+
+   public SimpleObjectProperty<String> playerWhiteNameProperty() {
+      return playerWhiteName;
+   }
+
+   public String getPlayerBlackName() {
+      return playerBlackName.getValue();
+   }
+
+   public void setPlayerBlackName(final String name) {
+      playerBlackName.setValue(name);
+   }
+
+   public SimpleObjectProperty<String> playerBlackNameProperty() {
+      return playerBlackName;
    }
 }

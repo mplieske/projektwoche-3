@@ -4,12 +4,15 @@ import de.mplieske.projektwoche.controller.Controller;
 import de.mplieske.projektwoche.enums.FieldStatus;
 import de.mplieske.projektwoche.enums.Resources;
 import de.mplieske.projektwoche.model.Model;
+import de.mplieske.projektwoche.view.SceneLoader;
 import de.mplieske.projektwoche.view.ViewController;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -18,6 +21,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.awt.*;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,11 +48,18 @@ public class MainView implements ViewController {
    private ImageView currentPlayerImageView;
 
    @FXML
+   private Label playerNameLabel;
+
+   @FXML
    private void initialize() {
       LOGGER.info("Initialize main view.");
       newGameButton.setOnAction(actionEvent -> {
-         boardGridPane.setDisable(false);
-         controller.startNewGame();
+         try {
+            SceneLoader.loadScene(Resources.MENU_VIEW);
+         } catch (final IOException e) {
+            LOGGER.error("Could not load view of menu '{}'.", Resources.MENU_VIEW.getLocation(), e);
+            Platform.exit();
+         }
       });
    }
 
@@ -71,11 +82,11 @@ public class MainView implements ViewController {
          switch (newValue) {
             case PLAYER_WHILE:
                alert.setHeaderText("We Have A Winner!!!");
-               alert.setContentText("The winner is: White");
+               alert.setContentText("The winner is: '" + model.getPlayerWhiteName() + "'");
                break;
             case PLAYER_BLACK:
                alert.setHeaderText("We Have A Winner!!!");
-               alert.setContentText("The winner is: Black");
+               alert.setContentText("The winner is: '" + model.getPlayerBlackName() + "'");
                break;
             default:
                alert.setHeaderText("thr s no wnnr :(");
@@ -88,18 +99,22 @@ public class MainView implements ViewController {
       // TODO: duplicate
       if (model.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
          currentPlayerImageView.setImage(playerBlackImage);
+         playerNameLabel.setText("(" + model.getPlayerBlackName() + ")");
       } else if (model.getCurrentPlayer() == FieldStatus.PLAYER_WHILE) {
          currentPlayerImageView.setImage(playerWhiteImage);
+         playerNameLabel.setText("(" + model.getPlayerWhiteName() + ")");
       } else {
          // this should not happen.
          throw new RuntimeException("Invalid value for player: '" + model.getCurrentPlayer() + "'.");
       }
 
       model.currentPlayerProperty().addListener((observable, oldValue, newValue) -> {
-         if (newValue == FieldStatus.PLAYER_BLACK) {
+         if (model.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
             currentPlayerImageView.setImage(playerBlackImage);
-         } else if (newValue == FieldStatus.PLAYER_WHILE) {
+            playerNameLabel.setText("(" + model.getPlayerBlackName() + ")");
+         } else if (model.getCurrentPlayer() == FieldStatus.PLAYER_WHILE) {
             currentPlayerImageView.setImage(playerWhiteImage);
+            playerNameLabel.setText("(" + model.getPlayerWhiteName() + ")");
          } else {
             // this should not happen.
             throw new RuntimeException("Invalid value for player: '" + newValue + "'.");

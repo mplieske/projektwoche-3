@@ -25,7 +25,7 @@ public class App extends Application {
       SceneLoader.setController(controller);
       SceneLoader.setPrimaryStage(primaryStage);
 
-      SceneLoader.loadScene(Resources.MAIN_VIEW);
+      SceneLoader.loadScene(Resources.MENU_VIEW);
    }
 
 }

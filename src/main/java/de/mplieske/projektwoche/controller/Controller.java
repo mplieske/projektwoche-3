@@ -11,11 +11,6 @@ public class Controller {
    private static final Logger LOGGER = LoggerFactory.getLogger(Controller.class);
    private static final Model MODEL = new Model();
 
-
-   public Controller() {
-      startNewGame();
-   }
-
    public Model getModel() {
       return MODEL;
    }
