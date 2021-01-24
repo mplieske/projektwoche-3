@@ -73,6 +73,8 @@ public class MainView implements ViewController {
    public void dataInit() {
       LOGGER.info("Initialize data.");
 
+      // TODO: refactor me please 😢😢😢😢😢😢😢:(
+
       model.winnerProperty().addListener((observable, oldValue, newValue) -> {
          boardGridPane.setDisable(true);
 

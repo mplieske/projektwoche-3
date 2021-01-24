@@ -10,7 +10,7 @@ public enum Resources {
 
    private final String location;
 
-   private Resources(final String location) {
+   Resources(final String location) {
       this.location = location;
    }
 

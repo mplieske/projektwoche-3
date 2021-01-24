@@ -17,7 +17,7 @@ public class Controller {
 
 
    public void startNewGame() {
-      // TODO: implement
+      // TODO: split me up into smaller methods :)
       if (Math.random() < 0.5) {
          MODEL.setCurrentPlayer(FieldStatus.PLAYER_BLACK);
       } else {
@@ -45,6 +45,8 @@ public class Controller {
 
       MODEL.getBoard()[x][y].setValue(MODEL.getCurrentPlayer());
 
+      // TODO: refactor me
+      // TODO: split me up into smaller methods
       // TODO: maybe use point and vector
       if (isDirectionValid(x, y, 0, -1)) { // top
          setFieldsInDirection(x, y, 0, -1, MODEL.getCurrentPlayer());
@@ -128,11 +130,6 @@ public class Controller {
          return moveValid;
       }
 
-      FieldStatus enemyStatus = FieldStatus.PLAYER_BLACK;
-      if (MODEL.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
-         enemyStatus = FieldStatus.PLAYER_WHILE;
-      }
-
       return isAnyDirectionRight(x, y);
    }
 
@@ -148,6 +145,10 @@ public class Controller {
    }
 
    private boolean isDirectionValid(final int xStart, final int yStart, final int vectorX, final int vectorY) {
+
+      // TODO: refactor me
+      // TDOD: split me up into multiple methods
+
       FieldStatus enemyStatus = FieldStatus.PLAYER_BLACK;
       if (MODEL.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
          enemyStatus = FieldStatus.PLAYER_WHILE;
@@ -166,7 +167,6 @@ public class Controller {
          return false;
       }
 
-      // TODO: refactor me
       for (multiplier = 2; status != FieldStatus.EMPTY; multiplier++) {
          try {
             status = getStatus(xStart, yStart, vectorX * multiplier, vectorY * multiplier);
