@@ -35,6 +35,11 @@ public class MenuController implements ViewController {
 
    @FXML
    private void initialize() {
+      initializeButtons();
+      initializeTextFields();
+   }
+
+   private void initializeButtons() {
       quitButton.setOnAction(actionEvent -> Platform.exit());
 
       startButton.setOnAction(actionEvent -> {
@@ -48,7 +53,9 @@ public class MenuController implements ViewController {
             Platform.exit();
          }
       });
+   }
 
+   private void initializeTextFields() {
       playerOneTextField.textProperty().addListener((observable, oldValue, newValue) -> {
          if (newValue == null || newValue.isEmpty() || playerTwoTextField.getText() == null || playerTwoTextField.getText().isEmpty() || newValue.equals(playerTwoTextField.getText())) {
             startButton.setDisable(true);

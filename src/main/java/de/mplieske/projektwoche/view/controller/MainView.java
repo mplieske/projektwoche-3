@@ -42,6 +42,9 @@ public class MainView implements ViewController {
    private Button newGameButton;
 
    @FXML
+   private Button quitButton;
+
+   @FXML
    private GridPane boardGridPane;
 
    @FXML
@@ -53,14 +56,17 @@ public class MainView implements ViewController {
    @FXML
    private void initialize() {
       LOGGER.info("Initialize main view.");
-      newGameButton.setOnAction(actionEvent -> {
-         try {
-            SceneLoader.loadScene(Resources.MENU_VIEW);
-         } catch (final IOException e) {
-            LOGGER.error("Could not load view of menu '{}'.", Resources.MENU_VIEW.getLocation(), e);
-            Platform.exit();
-         }
-      });
+      newGameButton.setOnAction(actionEvent -> handleNewGameButtonPressed());
+      quitButton.setOnAction(actionEvent -> Platform.exit());
+   }
+
+   private void handleNewGameButtonPressed() {
+      try {
+         SceneLoader.loadScene(Resources.MENU_VIEW);
+      } catch (final IOException e) {
+         LOGGER.error("Could not load view of menu '{}'.", Resources.MENU_VIEW.getLocation(), e);
+         Platform.exit();
+      }
    }
 
    @Override
@@ -72,33 +78,54 @@ public class MainView implements ViewController {
    @Override
    public void dataInit() {
       LOGGER.info("Initialize data.");
+      model.winnerProperty().addListener((observable, oldValue, newValue) -> handleWinnerPropertyChange(newValue));
+      updateCurrentPlayer();
+      model.currentPlayerProperty().addListener((observable, oldValue, newValue) -> updateCurrentPlayer());
 
-      // TODO: refactor me please 😢😢😢😢😢😢😢:(
+      for (int i = 0; i < 8; i++) {
+         for (int j = 0; j < 8; j++) {
+            final SimpleObjectProperty<FieldStatus> statusProperty = model.getBoard()[i][j];
 
-      model.winnerProperty().addListener((observable, oldValue, newValue) -> {
-         boardGridPane.setDisable(true);
+            final ImageView imageView = new ImageView();
+            final Pane pane = new Pane();
+            panePointMap.put(pane, new Point(i, j));
+            pane.setOnMouseClicked(this::handleMouseClick);
+            pane.backgroundProperty().setValue(new Background(new BackgroundFill(Color.rgb(255, 165, 79), CornerRadii.EMPTY, Insets.EMPTY)));
+            pane.getChildren().add(imageView);
+            updateImageView(statusProperty.getValue(), imageView);
 
-         final Alert alert = new Alert(Alert.AlertType.INFORMATION);
-         alert.setTitle("Game Over");
+            boardGridPane.add(pane, i, j);
+            fieldStatusPropertyImageMap.put(statusProperty, imageView);
 
-         switch (newValue) {
-            case PLAYER_WHILE:
-               alert.setHeaderText("We Have A Winner!!!");
-               alert.setContentText("The winner is: '" + model.getPlayerWhiteName() + "'");
-               break;
-            case PLAYER_BLACK:
-               alert.setHeaderText("We Have A Winner!!!");
-               alert.setContentText("The winner is: '" + model.getPlayerBlackName() + "'");
-               break;
-            default:
-               alert.setHeaderText("thr s no wnnr :(");
-               alert.setContentText("Both Black and White have the same amount of pieces on the board.");
-               break;
+            statusProperty.addListener(this::handleStatusPropertyChange);
          }
-         alert.showAndWait();
-      });
+      }
+   }
 
-      // TODO: duplicate
+   private void handleWinnerPropertyChange(final FieldStatus newValue) {
+      boardGridPane.setDisable(true);
+
+      final Alert alert = new Alert(Alert.AlertType.INFORMATION);
+      alert.setTitle("Game Over");
+
+      switch (newValue) {
+         case PLAYER_WHILE:
+            alert.setHeaderText("We Have A Winner!!!");
+            alert.setContentText("The winner is: '" + model.getPlayerWhiteName() + "'");
+            break;
+         case PLAYER_BLACK:
+            alert.setHeaderText("We Have A Winner!!!");
+            alert.setContentText("The winner is: '" + model.getPlayerBlackName() + "'");
+            break;
+         default:
+            alert.setHeaderText("thr s no wnnr :(");
+            alert.setContentText("Both Black and White have the same amount of pieces on the board.");
+            break;
+      }
+      alert.showAndWait();
+   }
+
+   private void updateCurrentPlayer() {
       if (model.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
          currentPlayerImageView.setImage(playerBlackImage);
          playerNameLabel.setText("(" + model.getPlayerBlackName() + ")");
@@ -109,68 +136,36 @@ public class MainView implements ViewController {
          // this should not happen.
          throw new RuntimeException("Invalid value for player: '" + model.getCurrentPlayer() + "'.");
       }
+   }
 
-      model.currentPlayerProperty().addListener((observable, oldValue, newValue) -> {
-         if (model.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
-            currentPlayerImageView.setImage(playerBlackImage);
-            playerNameLabel.setText("(" + model.getPlayerBlackName() + ")");
-         } else if (model.getCurrentPlayer() == FieldStatus.PLAYER_WHILE) {
-            currentPlayerImageView.setImage(playerWhiteImage);
-            playerNameLabel.setText("(" + model.getPlayerWhiteName() + ")");
-         } else {
-            // this should not happen.
-            throw new RuntimeException("Invalid value for player: '" + newValue + "'.");
-         }
-      });
+   private void handleMouseClick(final javafx.scene.input.MouseEvent mouseEvent) {
+      final Point point = panePointMap.get(mouseEvent.getSource());
+      controller.move(point.x, point.y);
+   }
 
-      for (int i = 0; i < 8; i++) {
-         for (int j = 0; j < 8; j++) {
-            final SimpleObjectProperty<FieldStatus> statusProperty = model.getBoard()[i][j];
-
-            final ImageView imageView = new ImageView();
-            final Pane pane = new Pane();
-            panePointMap.put(pane, new Point(i, j));
-            pane.setOnMouseClicked(mouseEvent -> {
-               final Point point = panePointMap.get(mouseEvent.getSource());
-               controller.move(point.x, point.y);
-            });
-            pane.backgroundProperty().setValue(new Background(new BackgroundFill(Color.rgb(255, 165, 79), CornerRadii.EMPTY, Insets.EMPTY)));
-            pane.getChildren().add(imageView);
-            if (statusProperty.getValue() == FieldStatus.PLAYER_BLACK) {
-               imageView.setImage(playerBlackImage);
-               imageView.setVisible(true);
-            } else if (statusProperty.getValue() == FieldStatus.PLAYER_WHILE) {
-               imageView.setImage(playerWhiteImage);
-               imageView.setVisible(true);
-            } else {
-               imageView.setVisible(false);
-            }
-
-            boardGridPane.add(pane, i, j);
-            fieldStatusPropertyImageMap.put(statusProperty, imageView);
-
-            statusProperty.addListener((observable, oldValue, newValue) -> {
-               LOGGER.debug("observable '{}' changed from '{}' to '{}'.", observable, oldValue, newValue);
-               final ImageView toBeChangedImageView = fieldStatusPropertyImageMap.get(observable);
-               switch (newValue) {
-                  case EMPTY:
-                     toBeChangedImageView.setVisible(false);
-                     break;
-                  case PLAYER_BLACK:
-                     toBeChangedImageView.setImage(playerBlackImage);
-                     toBeChangedImageView.setVisible(true);
-                     break;
-                  case PLAYER_WHILE:
-                     toBeChangedImageView.setImage(playerWhiteImage);
-                     toBeChangedImageView.setVisible(true);
-                     break;
-                  default:
-                     // never happens.
-                     break;
-               }
-            });
-         }
+   private void updateImageView(final FieldStatus newValue, final ImageView toBeChangedImageView) {
+      switch (newValue) {
+         case EMPTY:
+            toBeChangedImageView.setVisible(false);
+            break;
+         case PLAYER_BLACK:
+            toBeChangedImageView.setImage(playerBlackImage);
+            toBeChangedImageView.setVisible(true);
+            break;
+         case PLAYER_WHILE:
+            toBeChangedImageView.setImage(playerWhiteImage);
+            toBeChangedImageView.setVisible(true);
+            break;
+         default:
+            // never happens.
+            break;
       }
+   }
+
+   private void handleStatusPropertyChange(final javafx.beans.value.ObservableValue<? extends FieldStatus> observable, final FieldStatus oldValue, final FieldStatus newValue) {
+      LOGGER.debug("observable '{}' changed from '{}' to '{}'.", observable, oldValue, newValue);
+      final ImageView toBeChangedImageView = fieldStatusPropertyImageMap.get(observable);
+      updateImageView(newValue, toBeChangedImageView);
    }
 
 }
