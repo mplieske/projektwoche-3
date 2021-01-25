@@ -109,7 +109,7 @@ public class MainView implements ViewController {
       alert.setTitle("Game Over");
 
       switch (newValue) {
-         case PLAYER_WHILE:
+         case PLAYER_WHITE:
             alert.setHeaderText("We Have A Winner!!!");
             alert.setContentText("The winner is: '" + model.getPlayerWhiteName() + "'");
             break;
@@ -129,7 +129,7 @@ public class MainView implements ViewController {
       if (model.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
          currentPlayerImageView.setImage(playerBlackImage);
          playerNameLabel.setText("(" + model.getPlayerBlackName() + ")");
-      } else if (model.getCurrentPlayer() == FieldStatus.PLAYER_WHILE) {
+      } else if (model.getCurrentPlayer() == FieldStatus.PLAYER_WHITE) {
          currentPlayerImageView.setImage(playerWhiteImage);
          playerNameLabel.setText("(" + model.getPlayerWhiteName() + ")");
       } else {
@@ -152,7 +152,7 @@ public class MainView implements ViewController {
             toBeChangedImageView.setImage(playerBlackImage);
             toBeChangedImageView.setVisible(true);
             break;
-         case PLAYER_WHILE:
+         case PLAYER_WHITE:
             toBeChangedImageView.setImage(playerWhiteImage);
             toBeChangedImageView.setVisible(true);
             break;

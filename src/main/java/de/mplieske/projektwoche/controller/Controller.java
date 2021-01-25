@@ -46,7 +46,7 @@ public class Controller {
 
       setFields(x, y);
 
-      MODEL.setCurrentPlayer(MODEL.getCurrentPlayer() == FieldStatus.PLAYER_BLACK ? FieldStatus.PLAYER_WHILE : FieldStatus.PLAYER_BLACK);
+      MODEL.setCurrentPlayer(MODEL.getCurrentPlayer() == FieldStatus.PLAYER_BLACK ? FieldStatus.PLAYER_WHITE : FieldStatus.PLAYER_BLACK);
 
       if (!checkIfThereAreValidMoves()) {
          final FieldStatus winner = calculateWinner();
@@ -58,7 +58,7 @@ public class Controller {
       if (Math.random() < 0.5) {
          MODEL.setCurrentPlayer(FieldStatus.PLAYER_BLACK);
       } else {
-         MODEL.setCurrentPlayer(FieldStatus.PLAYER_WHILE);
+         MODEL.setCurrentPlayer(FieldStatus.PLAYER_WHITE);
       }
       LOGGER.info("Player is '{}'", MODEL.getCurrentPlayer());
    }
@@ -72,8 +72,8 @@ public class Controller {
    }
 
    private void setMiddlePiecesOnBoard() {
-      MODEL.getBoard()[3][3].setValue(FieldStatus.PLAYER_WHILE);
-      MODEL.getBoard()[4][4].setValue(FieldStatus.PLAYER_WHILE);
+      MODEL.getBoard()[3][3].setValue(FieldStatus.PLAYER_WHITE);
+      MODEL.getBoard()[4][4].setValue(FieldStatus.PLAYER_WHITE);
 
       MODEL.getBoard()[3][4].setValue(FieldStatus.PLAYER_BLACK);
       MODEL.getBoard()[4][3].setValue(FieldStatus.PLAYER_BLACK);
@@ -166,7 +166,7 @@ public class Controller {
    private FieldStatus getEnemyStatus() {
       FieldStatus enemyStatus = FieldStatus.PLAYER_BLACK;
       if (MODEL.getCurrentPlayer() == FieldStatus.PLAYER_BLACK) {
-         enemyStatus = FieldStatus.PLAYER_WHILE;
+         enemyStatus = FieldStatus.PLAYER_WHITE;
       }
       return enemyStatus;
    }
@@ -200,7 +200,7 @@ public class Controller {
          for (int j = 0; j < 8; j++) {
             if (MODEL.getBoard()[i][j].getValue() == FieldStatus.PLAYER_BLACK) {
                playerBlackCount++;
-            } else if (MODEL.getBoard()[i][j].getValue() == FieldStatus.PLAYER_WHILE) {
+            } else if (MODEL.getBoard()[i][j].getValue() == FieldStatus.PLAYER_WHITE) {
                playerWhiteCount++;
             }
          }
@@ -209,7 +209,7 @@ public class Controller {
       if (playerBlackCount > playerWhiteCount) {
          return FieldStatus.PLAYER_BLACK;
       } else if (playerWhiteCount > playerBlackCount) {
-         return FieldStatus.PLAYER_WHILE;
+         return FieldStatus.PLAYER_WHITE;
       }
       return FieldStatus.EMPTY;
    }
